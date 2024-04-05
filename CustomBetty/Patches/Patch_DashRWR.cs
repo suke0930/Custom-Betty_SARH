@@ -33,6 +33,10 @@ class Patch_DashRWR_Start
             {
                 __instance.newContactBlip = voiceProfile.newContactBlip;
             }
+            if (voiceProfile.collisionWarning != null)
+            {
+               __instance.sarhLockBlip = voiceProfile.collisionWarning;
+            }
         }
     }
 }

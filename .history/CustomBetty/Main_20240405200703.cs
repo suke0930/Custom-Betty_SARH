@@ -47,7 +47,7 @@ public class CustomBetty : VTOLMOD
         RWRMissileLoopLock,
         RWRNewContactBlip,
 
-        SARHLockBlip,
+        HUDCollisionWarning,
         HUDStallWarning
     }
 
@@ -63,7 +63,7 @@ public class CustomBetty : VTOLMOD
         public AudioClip lockBlip;
         public AudioClip missileLoopLock;
         public AudioClip newContactBlip;
-        public AudioClip Shoot;
+
         public AudioClip collisionWarning;
         public AudioClip stallWarning;
 
@@ -168,7 +168,7 @@ public class CustomBetty : VTOLMOD
                     case CommonWarnings2.RWRNewContactBlip:
                         newContactBlip = temp;
                         break;
-                    case CommonWarnings2.SARHLockBlip:
+                    case CommonWarnings2.HUDCollisionWarning:
                         collisionWarning = temp;
                         break;
                     case CommonWarnings2.HUDStallWarning:
