@@ -12,27 +12,11 @@ class Patch_DashRWR_Start
     [HarmonyPostfix]
     static void Postfix(DashRWR __instance)
     {
-        if (CustomBetty.instance.currentProfile != null)
+        if (CustomBetty2.instance.currentProfile != null)
         {
-            CustomBetty.Profile voiceProfile = CustomBetty.instance.currentProfile;
+            CustomBetty2.Profile voiceProfile = CustomBetty2.instance.currentProfile;
 
-            Debug.Log("Replacing RWR");
-            if (voiceProfile.blip != null)
-            {
-                __instance.radarBlip = voiceProfile.blip;
-            }
-            if (voiceProfile.irMissileIncoming != null)
-            {
-                __instance.lockBlip = voiceProfile.lockBlip;
-            }
-            if (voiceProfile.missileLoopLock != null)
-            {
-                __instance.missileLockLoopAudioSource.clip = voiceProfile.missileLoopLock;
-            }
-            if (voiceProfile.newContactBlip != null)
-            {
-                __instance.newContactBlip = voiceProfile.newContactBlip;
-            }
+            Debug.Log("Replacing SARH"); 
             if (voiceProfile.collisionWarning != null)
             {
                __instance.sarhLockBlip = voiceProfile.collisionWarning;

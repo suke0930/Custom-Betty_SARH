@@ -10,45 +10,11 @@ using System.IO;
 using Harmony;
 using System.Reflection;
 
-public class CustomBetty : VTOLMOD
+public class CustomBetty2 : VTOLMOD
 {
     public enum CommonWarnings2
     {
-        EngineFailure,
-        LeftEngineFailure,
-        RightEngineFailure,
-        APUFailure,
-        HydraulicsFailure,
-        Chaff,
-        ChaffLow,
-        ChaffEmpty,
-        Flare,
-        FlareLow,
-        FlareEmpty,
-        BingoFuel,
-        Altitude,
-        PullUp,
-        OverG,
-        MissileLaunch,
-        Missile,
-        Shoot,
-        Pitbull,
-        Warning,
-        Fire,
-        FuelLeak,
-        FuelDump,
-        LandingGear,
-        AutopilotOff,
-        WingFold,
-
-        RWRBlip,
-        RWRIRMissileIncoming,
-        RWRLockBlip,
-        RWRMissileLoopLock,
-        RWRNewContactBlip,
-
         SARHLockBlip,
-        HUDStallWarning
     }
 
 
@@ -75,104 +41,8 @@ public class CustomBetty : VTOLMOD
                 AudioClip temp = lineGroups[i].GenerateMessageAudio();
                 switch (lineGroups[i].type)
                 {
-                    case CommonWarnings2.EngineFailure:
-                        output.EngineFailure = temp;
-                        break;
-                    case CommonWarnings2.LeftEngineFailure:
-                        output.LeftEngineFailure = temp;
-                        break;
-                    case CommonWarnings2.RightEngineFailure:
-                        output.RightEngineFailure = temp;
-                        break;
-                    case CommonWarnings2.APUFailure:
-                        output.APUFailure = temp;
-                        break;
-                    case CommonWarnings2.HydraulicsFailure:
-                        output.HydraulicsFailure = temp;
-                        break;
-                    case CommonWarnings2.Chaff:
-                        output.Chaff = temp;
-                        break;
-                    case CommonWarnings2.ChaffLow:
-                        output.ChaffLow = temp;
-                        break;
-                    case CommonWarnings2.ChaffEmpty:
-                        output.ChaffEmpty = temp;
-                        break;
-                    case CommonWarnings2.Flare:
-                        output.Flare = temp;
-                        break;
-                    case CommonWarnings2.FlareLow:
-                        output.FlareLow = temp;
-                        break;
-                    case CommonWarnings2.FlareEmpty:
-                        output.FlareEmpty = temp;
-                        break;
-                    case CommonWarnings2.BingoFuel:
-                        output.BingoFuel = temp;
-                        break;
-                    case CommonWarnings2.Altitude:
-                        output.Altitude = temp;
-                        break;
-                    case CommonWarnings2.PullUp:
-                        output.PullUp = temp;
-                        break;
-                    case CommonWarnings2.OverG:
-                        output.OverG = temp;
-                        break;
-                    case CommonWarnings2.MissileLaunch:
-                        output.MissileLaunch = temp;
-                        break;
-                    case CommonWarnings2.Missile:
-                        output.Missile = temp;
-                        break;
-                    case CommonWarnings2.Shoot:
-                        output.Shoot = temp;
-                        break;
-                    case CommonWarnings2.Pitbull:
-                        output.Pitbull = temp;
-                        break;
-                    case CommonWarnings2.Warning:
-                        output.Warning = temp;
-                        break;
-                    case CommonWarnings2.Fire:
-                        output.Fire = temp;
-                        break;
-                    case CommonWarnings2.FuelLeak:
-                        output.FuelLeak = temp;
-                        break;
-                    case CommonWarnings2.FuelDump:
-                        output.FuelDump = temp;
-                        break;
-                    case CommonWarnings2.LandingGear:
-                        output.LandingGear = temp;
-                        break;
-                    case CommonWarnings2.AutopilotOff:
-                        output.AutopilotOff = temp;
-                        break;
-                    case CommonWarnings2.WingFold:
-                        output.WingFold = temp;
-                        break;
-                    case CommonWarnings2.RWRBlip:
-                        blip = temp;
-                        break;
-                    case CommonWarnings2.RWRIRMissileIncoming:
-                        irMissileIncoming = temp;
-                        break;
-                    case CommonWarnings2.RWRLockBlip:
-                        lockBlip = temp;
-                        break;
-                    case CommonWarnings2.RWRMissileLoopLock:
-                        missileLoopLock = temp;
-                        break;
-                    case CommonWarnings2.RWRNewContactBlip:
-                        newContactBlip = temp;
-                        break;
                     case CommonWarnings2.SARHLockBlip:
                         collisionWarning = temp;
-                        break;
-                    case CommonWarnings2.HUDStallWarning:
-                        stallWarning = temp;
                         break;
                     default:
                         break;
@@ -251,7 +121,7 @@ public class CustomBetty : VTOLMOD
         }
     }
 
-    public static CustomBetty instance;
+    public static CustomBetty2 instance;
 
     public string address;
     public List<Profile> profiles;
@@ -263,7 +133,7 @@ public class CustomBetty : VTOLMOD
 
     public override void ModLoaded()
     {
-        HarmonyInstance harmony = HarmonyInstance.Create("cheese.customBetty");
+        HarmonyInstance harmony = HarmonyInstance.Create("cheese.customBettyARH");
         harmony.PatchAll(Assembly.GetExecutingAssembly());
 
         base.ModLoaded();
